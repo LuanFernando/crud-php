@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //IF ELSE para redirecionar a ação para a queryProduto correta.
             if($acao == 'cadastrar_compra'){
                 //Query para inserir um compra na tabela compras do Mysql.
-                $queryProduto = "INSERT INTO compras (idProduto,dataCompra,valorCompra) VALUES('$idProduto',NOW(),'$precoProduto');";
+                $queryCompras = "INSERT INTO compras (idProduto,dataCompra,valorCompra) VALUES('$idProduto',NOW(),'$precoProduto');";
             
                 //Aqui a response irá receber o que retorna da função mysql_query.
                 $response = mysqli_query($conn,$queryProduto);
