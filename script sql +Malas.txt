@@ -1,0 +1,3 @@
+CREATE DATABASE mais_malas;
+CREATE TABLE produtos (idProduto int not null Primary Key AUTO_INCREMENT,nomeProduto varchar(250) not null,descricaoProduto varchar(250) not null,precoProduto varchar(250) not null,dataCadastro varchar(50) not null, dataAtualizacao varchar(50));
+CREATE TABLE compras (idCompraProduto int not null Primary key AUTO_INCREMENT,idProduto int not null, dataCompra varchar(50) not null,valorCompra varchar(50) not null);
