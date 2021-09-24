@@ -17,7 +17,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }else if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     $input_acao = $_GET['input-acao'];
-
     //IF ELSE não deu certo para usar o method delete
     if($input_acao == 'remover_produto'){
         removerProduto();
@@ -101,13 +100,13 @@ function removerProduto(){
     $response = json_decode(curl_exec($ch));
     //$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-    if($response == null){
+    if($response[1] != '1'){
         echo "<center>
               <h1>Produto removido com sucesso!</h1>
               <a href='index.php' id='btnVoltarHome'>Voltar para a Home</a>
              </center>";
     }else{
-        //var_dump($response);
+        var_dump($response[1] =='1');
         echo "<center>
               <h1>Produto não removido!</h1>
               <a href='index.php' id='btnVoltarHome'>Voltar para a Home</a>
