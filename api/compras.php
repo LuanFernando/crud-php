@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $queryCompras = "INSERT INTO compras (idProduto,dataCompra,valorCompra) VALUES('$idProduto',NOW(),'$precoProduto');";
             
                 //Aqui a response irá receber o que retorna da função mysql_query.
-                $response = mysqli_query($conn,$queryProduto);
+                $response = mysqli_query($conn,$queryCompras);
 
                 //IF ELSE verifica a função mysqli_insert_id e retorna o id inserido.
                 if(mysqli_insert_id($conn)){
@@ -60,10 +60,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //Header para poder retornar o json com resposta da request.
         header('Content-Type: application/json');
 
-        //Query para listar todos os produtos da tabela no Mysql.
-        $queryProduto = "SELECT * FROM produtos;";
+        //Query para listar todos as compras da tabela no Mysql.
+        $queryCompras = "SELECT * FROM compras;";
 
-        $response = mysqli_query($conn,$queryProduto);
+        $response = mysqli_query($conn,$queryCompras);
         $data = $response->fetch_all(MYSQLI_ASSOC);
         //Fechando a conexão com mysqli
         mysqli_close($conn);
@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //Exibindo os dados retornando
         echo json_encode($data);
     
-        //Retornando os produtos da tabela.
+        //Retornando os compras da tabela.
        return json_encode($data);
 
         //Fechando a conexão com mysqli
