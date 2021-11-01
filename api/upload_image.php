@@ -1,6 +1,5 @@
  <?php
-
-/// Incluindo a conexão com banco de dados
+///Incluindo conexão com banco de dados
 include_once ("../conexao_bd.php");
 
 /// No exemplo abaixo estamos recebendo uma imagen salvando em uma pasta dentro do servidor e salvando
@@ -12,15 +11,9 @@ include_once ("../conexao_bd.php");
         $new_name = $nameFile."_".date("Y.m.d-H.i.s").$ext;//Definindo um novo nome para o arquivo
         $dir = '../uploads/';/// Diretório para uploads
         move_uploaded_file($_FILES['image']['tmp_name'],$dir.$new_name);/// Fazer upload do arquivo
-       ;
         echo($_FILES['image']['tmp_name']."\n");
-        echo($dir.$new_name."\n");
         echo($ext);
-        ///
-        /// * Para pegar a imagem e retornar na Api precisa
-        /// * http://localhost/mais_malas/uploads/amenu_hamburguer_2021.10.18-15.01.32.png
-        /// * urlBase: http://localhost/mais_malas/uploads/ + diretorioImage+ nomeImage: uploads/amenu_hamburguer_2021.10.18-15.01.32.png
-    
+        
     }
 
     ///Header para poder retornar o json com resposta da request.
